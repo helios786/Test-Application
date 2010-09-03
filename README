@@ -1,0 +1,157 @@
+~ $ ruby -v
+ruby 1.9.2p0 (2010-08-18 revision 29036)
+~ $ gem -v
+1.3.7
+~ $ rails -v
+Rails 3.0.0
+
+~ $ rails new nikhil -d mysql
+      create
+      create  README
+      create  Rakefile
+      create  config.ru
+      create  .gitignore
+      create  Gemfile
+      create  app
+      create  app/controllers/application_controller.rb
+      create  app/helpers/application_helper.rb
+      create  app/views/layouts/application.html.erb
+      create  app/mailers
+      create  app/models
+      create  config
+      create  config/routes.rb
+      create  config/application.rb
+      create  config/environment.rb
+      create  config/environments
+      create  config/environments/development.rb
+      create  config/environments/production.rb
+      create  config/environments/test.rb
+      create  config/initializers
+      create  config/initializers/backtrace_silencers.rb
+      create  config/initializers/inflections.rb
+      create  config/initializers/mime_types.rb
+      create  config/initializers/secret_token.rb
+      create  config/initializers/session_store.rb
+      create  config/locales
+      create  config/locales/en.yml
+      create  config/boot.rb
+      create  config/database.yml
+      create  db
+      create  db/seeds.rb
+      create  doc
+      create  doc/README_FOR_APP
+      create  lib
+      create  lib/tasks
+      create  lib/tasks/.gitkeep
+      create  log
+      create  log/server.log
+      create  log/production.log
+      create  log/development.log
+      create  log/test.log
+      create  public
+      create  public/404.html
+      create  public/422.html
+      create  public/500.html
+      create  public/favicon.ico
+      create  public/index.html
+      create  public/robots.txt
+      create  public/images
+      create  public/images/rails.png
+      create  public/stylesheets
+      create  public/stylesheets/.gitkeep
+      create  public/javascripts
+      create  public/javascripts/application.js
+      create  public/javascripts/controls.js
+      create  public/javascripts/dragdrop.js
+      create  public/javascripts/effects.js
+      create  public/javascripts/prototype.js
+      create  public/javascripts/rails.js
+      create  script
+      create  script/rails
+      create  test
+      create  test/performance/browsing_test.rb
+      create  test/test_helper.rb
+      create  test/fixtures
+      create  test/functional
+      create  test/integration
+      create  test/unit
+      create  tmp
+      create  tmp/sessions
+      create  tmp/sockets
+      create  tmp/cache
+      create  tmp/pids
+      create  vendor/plugins
+      create  vendor/plugins/.gitkeep
+~ $ cd nikhil/
+~/nikhil $ rake db:create
+(in /home/nike/nikhil)
+~/nikhil $ rails g scaffold TaskList name:string
+      invoke  active_record
+      create    db/migrate/20100903115213_create_task_lists.rb
+      create    app/models/task_list.rb
+      invoke    test_unit
+      create      test/unit/task_list_test.rb
+      create      test/fixtures/task_lists.yml
+       route  resources :task_lists
+      invoke  scaffold_controller
+      create    app/controllers/task_lists_controller.rb
+      invoke    erb
+      create      app/views/task_lists
+      create      app/views/task_lists/index.html.erb
+      create      app/views/task_lists/edit.html.erb
+      create      app/views/task_lists/show.html.erb
+      create      app/views/task_lists/new.html.erb
+      create      app/views/task_lists/_form.html.erb
+      invoke    test_unit
+      create      test/functional/task_lists_controller_test.rb
+      invoke    helper
+      create      app/helpers/task_lists_helper.rb
+      invoke      test_unit
+      create        test/unit/helpers/task_lists_helper_test.rb
+      invoke  stylesheets
+      create    public/stylesheets/scaffold.css
+~/nikhil $ rails g scaffold Task task_list_id:integer title:string description:text due_date:timestamp done:boolean
+      invoke  active_record
+      create    db/migrate/20100903115244_create_tasks.rb
+      create    app/models/task.rb
+      invoke    test_unit
+      create      test/unit/task_test.rb
+      create      test/fixtures/tasks.yml
+       route  resources :tasks
+      invoke  scaffold_controller
+      create    app/controllers/tasks_controller.rb
+      invoke    erb
+      create      app/views/tasks
+      create      app/views/tasks/index.html.erb
+      create      app/views/tasks/edit.html.erb
+      create      app/views/tasks/show.html.erb
+      create      app/views/tasks/new.html.erb
+      create      app/views/tasks/_form.html.erb
+      invoke    test_unit
+      create      test/functional/tasks_controller_test.rb
+      invoke    helper
+      create      app/helpers/tasks_helper.rb
+      invoke      test_unit
+      create        test/unit/helpers/tasks_helper_test.rb
+      invoke  stylesheets
+   identical    public/stylesheets/scaffold.css
+~/nikhil $ rake db:migrate
+(in /home/nike/nikhil)
+==  CreateTaskLists: migrating ================================================
+-- create_table(:task_lists)
+   -> 0.0816s
+==  CreateTaskLists: migrated (0.0817s) =======================================
+
+==  CreateTasks: migrating ====================================================
+-- create_table(:tasks)
+   -> 0.0864s
+==  CreateTasks: migrated (0.0865s) ===========================================
+
+~/nikhil $ rails s
+=> Booting WEBrick
+=> Rails 3.0.0 application starting in development on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2010-09-03 17:26:35] INFO  WEBrick 1.3.1
+[2010-09-03 17:26:35] INFO  ruby 1.9.2 (2010-08-18)
+[2010-09-03 17:26:35] INFO  WEBrick::HTTPServer#start: pid=2504 port=3000
